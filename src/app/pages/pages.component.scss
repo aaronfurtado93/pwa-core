@@ -1,0 +1,12 @@
+.pages-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  border: 1px none red;
+}

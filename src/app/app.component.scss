@@ -1,0 +1,23 @@
+.app-body {
+  display: flex;
+  flex-direction: column;
+
+  width: 100vw;
+  height: 100vh;
+
+  border: 1px none red;
+
+  .app-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    border: 1px none red;
+
+    /deep/
+    app-pages {
+      flex: 1;
+    }
+  }
+}
