@@ -4,7 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {MaterialsModule} from './materials/materials.module';
+import { MaterialsModule } from './materials/materials.module';
+import { CommonComponentsModule } from './common-components/common-components.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {MaterialsModule} from './materials/materials.module';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialsModule,
+    CommonComponentsModule,
     AppRoutingModule
   ],
   providers: [],
