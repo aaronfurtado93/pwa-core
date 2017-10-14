@@ -6,6 +6,8 @@ import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
+} else if (module[`hot`]) {
+  module[`hot`].accept();
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
