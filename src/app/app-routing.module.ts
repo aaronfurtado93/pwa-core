@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'page',
     loadChildren: 'app/pages/pages.module#PagesModule',
+  },
+  {
+    path: '**',
+    redirectTo: 'page/not-found'
   }
 ];
 

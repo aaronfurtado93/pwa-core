@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MaterialsModule } from './materials/materials.module';
 import { CommonComponentsModule } from './common-components/common-components.module';
 import { CommonServicesModule } from './common-services/common-services.module';
+import {GuardsModule} from './guards/guards.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CommonServicesModule } from './common-services/common-services.module';
     MaterialsModule,
     CommonComponentsModule,
     CommonServicesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GuardsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

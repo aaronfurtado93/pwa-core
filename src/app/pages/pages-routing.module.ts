@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
+import { GuardsModule } from '../guards/guards.module';
+import { AuthGuard } from '../guards/auth/auth.guard';
+import { LoginGuard } from '../guards/login/login.guard';
 
 const routes: Routes = [
   {
@@ -10,11 +13,13 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        loadChildren: 'app/pages/login/login.module#LoginModule'
+        loadChildren: 'app/pages/login/login.module#LoginModule',
+        canActivate: [LoginGuard]
       },
       {
         path: 'dashboard',
-        loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule'
+        loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule',
+        canActivate: [AuthGuard]
       },
       {
         path: 'not-found',
@@ -29,7 +34,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes),
+    GuardsModule
+  ],
   exports: [RouterModule]
 })
 export class PagesRoutingModule { }
