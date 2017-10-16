@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { LoginService } from '../../common-services/api-management/api/login/login.service';
 import {ApiManagementService} from '../../common-services/api-management/api-management.service';
+import {FormManagementService} from '../../common-services/form-management/form-management.service';
 
 @Component({
   selector: 'app-login',
@@ -11,36 +12,14 @@ import {ApiManagementService} from '../../common-services/api-management/api-man
 export class LoginComponent implements OnInit {
 
   revealPassword: boolean;
-  private usernameMaxLength = 255;
 
   loginForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private apiManagementService: ApiManagementService
+    private apiManagementService: ApiManagementService,
+    private formManagementService: FormManagementService
   ) {
-    const username = [
-      '',
-      Validators.compose([
-        Validators.required,
-        Validators.pattern(/^\w{3,64}@\w+[.\w]+$/),
-        Validators.maxLength(this.usernameMaxLength)
-      ])
-    ];
-    const password = [
-      '',
-      Validators.compose([
-        Validators.pattern(
-          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@!%*#?&`~^()\-_\[\]{}:;'])[A-Za-z\d$@!%*#?&`~^()\-_\[\]{}:;']{8,20}$/
-        ),
-        Validators.required
-      ])
-    ];
-
-    this.loginForm = this.formBuilder.group({
-      username,
-      password
-    });
+    this.loginForm = this.formManagementService.createForm(`login`);
   }
 
   ngOnInit() {
