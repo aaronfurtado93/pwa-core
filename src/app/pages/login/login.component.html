@@ -1,3 +1,41 @@
-<p>
-  login works!
-</p>
+<div
+  class="form-container"
+>
+  <form
+    [formGroup]="loginForm"
+    (submit)="loginForm.valid && submit()"
+  >
+    <mat-form-field
+      hintLabel="username or registered email"
+    >
+      <input
+        type="text"
+        matInput
+        placeholder="Username"
+        formControlName="username"
+      >
+    </mat-form-field>
+    <mat-form-field
+    >
+      <input
+        [type]="revealPassword ? 'text' : 'password'"
+        matInput
+        placeholder="Password"
+        formControlName="password"
+      >
+      <mat-icon
+        matSuffix
+        (click)="revealPassword = !revealPassword"
+      >
+        {{ revealPassword ? 'visibility_off' : 'visibility' }}
+      </mat-icon>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      [disabled]="loginForm.invalid"
+      color="primary"
+    >
+      Login
+    </button>
+  </form>
+</div>

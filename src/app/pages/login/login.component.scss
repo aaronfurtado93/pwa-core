@@ -1,0 +1,26 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  margin-top: 15vh;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    mat-form-field {
+      width: 20vw;
+
+      @media screen and (max-width: 767px) {
+        width: 80vw;
+      }
+
+      border: 1px none red;
+    }
+  }
+
+  border: 1px none red;
+}

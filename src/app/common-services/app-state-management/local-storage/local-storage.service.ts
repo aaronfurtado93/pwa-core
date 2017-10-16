@@ -14,7 +14,7 @@ export class LocalStorageService {
     return new Promise(
       (resolve, reject) => {
         try {
-          localStorage.set(key, value);
+          localStorage.setItem(key, value);
           setTimeout(() => resolve(localStorage.getItem(key) === value ? value : undefined), this.timeoutConstant);
         } catch (reason) {
           reject(reason);
