@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { LoginService } from '../../common-services/api-management/api/login/login.service';
+import {ApiManagementService} from '../../common-services/api-management/api-management.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService
+    private apiManagementService: ApiManagementService
   ) {
     const username = [
       '',
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.loginService.login(this.loginForm.value);
+    this.apiManagementService.login(this.loginForm.value);
   }
 
 }
