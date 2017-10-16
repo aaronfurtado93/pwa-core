@@ -23,10 +23,15 @@
       "spaces"
     ],
     "interface-over-type-literal": true,
+    "interface-name": true,
     "label-position": true,
     "max-line-length": [
       true,
       140
+    ],
+    "max-file-line-count": [
+      true,
+      128
     ],
     "member-access": false,
     "member-ordering": [
@@ -71,6 +76,8 @@
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
+    "no-magic-numbers": true,
+
     "object-literal-sort-keys": false,
     "one-line": [
       true,

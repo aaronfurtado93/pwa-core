@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialsModule } from './materials/materials.module';
 import { CommonComponentsModule } from './common-components/common-components.module';
+import { CommonServicesModule } from './common-services/common-services.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CommonComponentsModule } from './common-components/common-components.mo
     BrowserAnimationsModule,
     MaterialsModule,
     CommonComponentsModule,
+    CommonServicesModule,
     AppRoutingModule
   ],
   providers: [],
