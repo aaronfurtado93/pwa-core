@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import {MaterialSnackBarService} from '../material-snack-bar/material-snack-bar.service';
 
 @Injectable()
 export class FirebaseResponseHandlerService {
 
-  constructor() { }
+  constructor(
+    private materialSnackBarService: MaterialSnackBarService
+  ) { }
 
-  static handleError(error: any) {
+  handleError(error: any) {
     switch (error[`code`]) {
       case `auth/user-not-found`:
       case `auth/wrong-password`:
-        console.log(`Authentication Failed`);
+        this.materialSnackBarService.show(`Authentication Failed`);
         return;
       case `auth/network-request-failed`:
         console.log(`Network Error! Please check your internet connection`);
