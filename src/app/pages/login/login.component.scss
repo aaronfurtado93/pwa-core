@@ -11,14 +11,28 @@
     flex-direction: column;
     justify-content: center;
 
-    mat-form-field {
-      width: 20vw;
+    mat-card-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
 
-      @media screen and (max-width: 767px) {
-        width: 80vw;
+      mat-form-field {
+        width: 40vw;
+
+        @media screen and (max-width: 767px){
+          width: 80vw;
+        }
       }
+    }
 
-      border: 1px none red;
+    mat-card-actions {
+      display: flex;
+
+      .mat-raised-button {
+        display: flex;
+        flex: 1;
+        align-items: center;
+      }
     }
 
     mat-icon {
