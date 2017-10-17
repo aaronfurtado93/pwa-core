@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { MaterialsModule } from './materials/materials.module';
 import { CommonComponentsModule } from './common-components/common-components.module';
 import { CommonServicesModule } from './common-services/common-services.module';
-import {GuardsModule} from './guards/guards.module';
+import { GuardsModule } from './guards/guards.module';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import {GuardsModule} from './guards/guards.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     MaterialsModule,
     CommonComponentsModule,
     CommonServicesModule,
