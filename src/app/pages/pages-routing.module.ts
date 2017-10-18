@@ -17,6 +17,11 @@ const routes: Routes = [
         canActivate: [LoginGuard]
       },
       {
+        path: 'register',
+        loadChildren: 'app/pages/register/register.module#RegisterModule',
+        canActivate: [LoginGuard]
+      },
+      {
         path: 'dashboard',
         loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule',
         canActivate: [AuthGuard]

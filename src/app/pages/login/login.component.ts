@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { LoginService } from '../../common-services/api-management/api/login/login.service';
 import {ApiManagementService} from '../../common-services/api-management/api-management.service';
 import {FormManagementService} from '../../common-services/form-management/form-management.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private apiManagementService: ApiManagementService,
-    private formManagementService: FormManagementService
+    private formManagementService: FormManagementService,
+    private router: Router
   ) {
     this.loginForm = this.formManagementService.createForm(`login`);
   }
@@ -27,6 +29,11 @@ export class LoginComponent implements OnInit {
 
   submit() {
     this.apiManagementService.login(this.loginForm.value);
+  }
+
+  register() {
+    this.router.navigate([`page/register`])
+      .then();
   }
 
 }
