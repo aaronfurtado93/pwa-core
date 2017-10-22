@@ -1,5 +1,13 @@
 # PwaCore
 
+### Lighthouse score
+
+![Lighthouse Score](docs/images/Lighthouse-score.png)
+
+*scores indicative of last successful build tested on [PWA-core](https://pwa-core.firebaseapp.com)
+
+## Built Using
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0-rc.0.
 
 ## Development server
