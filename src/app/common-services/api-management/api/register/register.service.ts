@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { IloginRegisterData } from '../../../../interfaces/ilogin-data';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { AppStateManagementService } from '../../../app-state-management/app-state-management.service';
 import { FirebaseResponseHandlerService } from '../../../firebase-response-handler/firebase-response-handler.service';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase';
+import { IloginRegisterData } from '../../../../interfaces/ilogin-data';
 
 @Injectable()
-export class LoginService {
+export class RegisterService {
 
   constructor(
     private appStateManagementService: AppStateManagementService,
@@ -14,14 +14,15 @@ export class LoginService {
     private angularFireAuth: AngularFireAuth
   ) { }
 
-  login(loginData: IloginRegisterData) {
-
-    this.angularFireAuth.auth.signInWithCredential(
-      firebase.auth.EmailAuthProvider.credential(
-        loginData.username, loginData.password
-      )
+  register(registerData: IloginRegisterData) {
+    this.angularFireAuth.auth.createUserWithEmailAndPassword(
+      registerData.username,
+      registerData.password
     )
-      .then(() => this.appStateManagementService.setLS(`authentication-token`, `true`))
+      .then(value => {
+        console.log(value);
+        return this.appStateManagementService.setLS(`authentication-token`, `true`);
+      })
       .catch(reason => this.firebaseResponseHandlerService.handleError(reason));
   }
 

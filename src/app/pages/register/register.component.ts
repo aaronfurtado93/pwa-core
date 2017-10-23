@@ -30,6 +30,6 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-    this.apiManagementService.login(this.registerForm.value);
+    this.apiManagementService.register(this.registerForm.value);
   }
 }
