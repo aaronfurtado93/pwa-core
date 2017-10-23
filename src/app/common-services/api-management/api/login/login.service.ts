@@ -25,4 +25,10 @@ export class LoginService {
       .catch(reason => this.firebaseResponseHandlerService.handleError(reason));
   }
 
+  googleLogin() {
+    this.angularFireAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then(() => this.appStateManagementService.setLS(`authentication-token`, `true`))
+      .catch(reason => this.firebaseResponseHandlerService.handleError(reason));
+  }
+
 }

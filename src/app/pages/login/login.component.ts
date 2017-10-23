@@ -31,6 +31,10 @@ export class LoginComponent implements OnInit {
     this.apiManagementService.login(this.loginForm.value);
   }
 
+  googleLogin() {
+    this.apiManagementService.googleLogin();
+  }
+
   register() {
     this.router.navigate([`page/register`])
       .then();

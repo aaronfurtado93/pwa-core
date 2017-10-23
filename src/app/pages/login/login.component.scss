@@ -31,7 +31,15 @@
       .mat-raised-button {
         display: flex;
         flex: 1;
+        align-content: center;
         align-items: center;
+        text-align: center;
+
+        overflow-y: hidden;
+
+        img {
+          margin: -4px;
+        }
       }
     }
 

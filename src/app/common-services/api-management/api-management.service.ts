@@ -26,4 +26,8 @@ export class ApiManagementService {
     return this.registerService.register(registerData);
   }
 
+  googleLogin() {
+    return this.loginService.googleLogin();
+  }
+
 }

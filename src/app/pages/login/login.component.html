@@ -50,10 +50,23 @@
           type="button"
           mat-raised-button
           color="secondary"
+          (click)="googleLogin()"
+        >
+          <img
+            src="../../../assets/images/social_login/btn_google_light_normal_ios.svg"
+            alt="Google"
+          > Google
+        </button>
+      </mat-card-actions>
+      <mat-card-actions>
+        <a
+          type="button"
+          mat-raised-button
+          color="secondary"
           (click)="register()"
         >
-          Register
-        </button>
+          New User? Register
+        </a>
       </mat-card-actions>
   </mat-card>
   </form>
