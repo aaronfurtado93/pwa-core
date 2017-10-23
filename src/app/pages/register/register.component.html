@@ -1,3 +1,75 @@
-<p>
-  register works!
-</p>
+<div
+  class="form-container"
+>
+  <form
+    [formGroup]="registerForm"
+    (submit)="registerForm.valid && checkPasswordConfirmPassword() && submit()"
+  >
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field
+          hintLabel="username or registered email"
+        >
+          <input
+            type="text"
+            matInput
+            placeholder="Username"
+            formControlName="username"
+          >
+        </mat-form-field>
+        <mat-form-field
+        >
+          <input
+            [type]="revealPassword ? 'text' : 'password'"
+            matInput
+            placeholder="Password"
+            formControlName="password"
+          >
+          <mat-icon
+            matSuffix
+            (click)="revealPassword = !revealPassword"
+          >
+            {{ revealPassword ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+        </mat-form-field>
+        <mat-form-field
+        >
+          <input
+            [type]="revealConfirmPassword ? 'text' : 'password'"
+            matInput
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+          >
+          <mat-icon
+            matSuffix
+            (click)="revealConfirmPassword = !revealConfirmPassword"
+          >
+            {{ revealPassword ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+          <mat-hint
+            *ngIf="registerForm.get('confirmPassword').dirty && !checkPasswordConfirmPassword()"
+          >
+            Password did not match
+          </mat-hint>
+        </mat-form-field>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          type="submit"
+          mat-raised-button
+          [disabled]="registerForm.invalid ||
+            !checkPasswordConfirmPassword()
+          "
+          color="primary"
+        >
+          Register
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+
+</div>

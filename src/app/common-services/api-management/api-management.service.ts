@@ -19,4 +19,7 @@ export class ApiManagementService {
     return this.logoutService.logout();
   }
 
+  register() {
+  }
+
 }

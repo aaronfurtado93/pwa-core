@@ -9,7 +9,7 @@ export class UsernameValidation {
       value || '',
       Validators.compose([
         Validators.required,
-        Validators.pattern(/^\w{3,64}@\w+[.\w]+$/),
+        Validators.pattern(/^\w(?:[.\-]\w|\w){2,64}@\w+\.[.\w]+/),
         Validators.maxLength(this.usernameMaxLength)
       ])
     ];
